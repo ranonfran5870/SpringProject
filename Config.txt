@@ -1,0 +1,63 @@
+
+BEGIN
+    RETURN QUERY 
+    SELECT airline_companies.* FROM airline_companies
+    JOIN users on airline_companies."User_id"=users."id"
+    where lower(users."Username") = _username;
+END;
+
+BEGIN
+    return query
+    select * from flights
+    WHERE "Destination_Country_id" = _country_id AND "Landing_Time" BETWEEN NOW()::timestamp(0) AND NOW()::timestamp(0) + INTERVAL '12 HOURS';
+
+END;
+
+BEGIN
+    return query
+    SELECT customers.*  FROM customers
+    JOIN users on customers."User_id"=users."id"
+    where lower(users."Username") = _username;
+END;
+
+BEGIN
+    return query
+    select * from flights
+    WHERE "Origin_Country_id" = _country_id AND "Departure_Time" BETWEEN NOW()::timestamp(0) AND NOW()::timestamp(0) + INTERVAL '12 HOURS';
+
+END;
+
+BEGIN
+    return query
+    SELECT flights.* FROM flights
+    JOIN airline_companies on flights."Airline_Company_id"=airline_companies."id"
+    where airline_companies."id" = _airline_id;
+END;
+
+BEGIN
+    return query
+    SELECT *  FROM flights
+    where "Origin_Country_id"=_origin_counry_id AND "Destination_Country_id" = _detination_country_id AND CAST("Departure_Time" AS DATE) = _date;
+
+END;
+
+BEGIN
+    return query
+    SELECT Tickets.* FROM Tickets
+   JOIN Customers on Tickets."Customer_id"=Customers."id"
+   where Customers."id" = _customer_id;
+END;
+
+BEGIN
+    return query
+    SELECT *  FROM users
+    where users."Username" = _username;
+END;
+
+BEGIN
+    return query
+    select flights.* from flights
+    join tickets on flights.id = tickets."Flight_id"
+    join customers on tickets."Customer_id" = customers.id
+    where customers."User_id" = _customer;
+END;

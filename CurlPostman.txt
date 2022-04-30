@@ -1,0 +1,55 @@
+#####Get Customer Login Token
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Authorization: Basic V2FsdDpranVrdWo4OA==' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "username": "Rosa",
+    "password": "1111"
+}
+
+'
+
+#####Sent Request To Admin foo() $$$$ ------------------------------- > "Access Denied" only Admin
+curl --location --request GET 'http://localhost:8080/admin/customer' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJSb3NhIiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ1VTVE9NRVIifV0sImlhdCI6MTY1MTMwOTIyNywiZXhwIjoxNjUyNDc1NjAwfQ.t0GI7P8fTENeGNE-Hu0CR0VnbIxlNF35K8gZk3-oOETgrEdEdUI4QmdT8FrB83cD' \
+--data-raw ''
+**************************************************************************
+####Get Admin Login Token
+
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Authorization: Basic V2FsdDpranVrdWo4OA==' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "username": "Walt",
+    "password": "kjukuj88"
+}
+
+'
+
+####Sent Request To Admin foo()
+
+curl --location --request GET 'http://localhost:8080/admin/customer' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJXYWx0IiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTY1MTMxMDA1OSwiZXhwIjoxNjUyNDc1NjAwfQ.QVaUlblRWELWuiBvfACYgzhmriHcX-8Cbs73XoSQYqn7aE8OahEs0xPyl-czhPp4' \
+--data-raw ''
+
+**************************************************************************
+####Get Airline Login Token
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Authorization: Basic V2FsdDpranVrdWo4OA==' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "username": "Indira",
+    "password": "55gtg11"
+}
+
+'
+
+####Sent Airline To Admin foo()
+
+
+curl --location --request GET 'http://localhost:8080/Airline/test' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJJbmRpcmEiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BSVJMSU5FIn1dLCJpYXQiOjE2NTEzMTAzMzEsImV4cCI6MTY1MjQ3NTYwMH0.OAct6gZnXvaXLkpoPknc-309wBRWIPdq45lSydwceUfiH-bFLDCfYFeDrHu937PF' \
+--data-raw ''
+
+
+
